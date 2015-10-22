@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.window.main" label="Rental Application" width="500" height="400">
     <children xsi:type="basic:PartSashContainer" xmi:id="_ZJXRUHfuEeWcE-NBElnFiQ" elementId="com.celad.rental.eap.partsashcontainer.0" horizontal="true">
       <children xsi:type="basic:PartStack" xmi:id="_gMf84HfuEeWcE-NBElnFiQ" elementId="com.celad.rental.eap.partstack.0">
         <children xsi:type="basic:Part" xmi:id="_dTyGUHfNEeWuRNiK0SjGVQ" elementId="com.celad.rental.eap.part.rentalproperty" contributionURI="bundleclass://com.celad.rental.ui/com.celad.rental.ui.views.RentalPropertyPart" label="Rental Property"/>
       </children>
       <children xsi:type="basic:PartStack" xmi:id="_s6YDEHgBEeWEi9D5j-ALTA" elementId="com.celad.rental.eap.partstack.2">
-        <children xsi:type="basic:Part" xmi:id="_wHdqIHgBEeWEi9D5j-ALTA" elementId="com.celad.rental.eap.part.agencytree" contributionURI="bundleclass://com.celad.rental.ui/com.celad.rental.ui.views.RentalTreePart" label="Agency Tree"/>
+        <children xsi:type="basic:Part" xmi:id="_wHdqIHgBEeWEi9D5j-ALTA" elementId="com.celad.rental.eap.part.agencytree" contributionURI="bundleclass://com.celad.rental.ui/com.celad.rental.ui.views.RentalTreePart" label="Agency Tree">
+          <handlers xmi:id="_Pxqd4Hi5EeWaEM74jrOcyA" elementId="com.celad.rental.eap.handler.0" contributionURI="bundleclass://com.celad.rental.ui/com.celad.rental.handler.AfficherMessageHandler"/>
+          <menus xmi:id="_JDJXcHi5EeWaEM74jrOcyA" elementId="com.celad.rental.eap.menu.0">
+            <tags>ViewMenu</tags>
+            <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_K1JgkHi5EeWaEM74jrOcyA"/>
+            <children xsi:type="menu:HandledMenuItem" xmi:id="_cEgvkHi5EeWaEM74jrOcyA" elementId="com.celad.rental.eap.handledmenuitem.1" command="_Vp5HcHi3EeWaEM74jrOcyA"/>
+          </menus>
+          <menus xsi:type="menu:PopupMenu" xmi:id="_ipnbUHi5EeWaEM74jrOcyA" elementId="com.celad.rental.eap.popupmenu.0">
+            <children xsi:type="menu:HandledMenuItem" xmi:id="_jMLV0Hi5EeWaEM74jrOcyA" elementId="com.celad.rental.eap.handledmenuitem.2" command="_Vp5HcHi3EeWaEM74jrOcyA"/>
+            <children xsi:type="menu:HandledMenuItem" xmi:id="_VeDC0HjCEeWaEM74jrOcyA" elementId="com.celad.rental.eap.handledmenuitem.4" command="_BSBgUHjAEeWaEM74jrOcyA">
+              <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_qwIgYHjCEeWaEM74jrOcyA" coreExpressionId="com.celad.rental.ui.customerSelected"/>
+            </children>
+          </menus>
+          <toolbar xmi:id="_8zrNEHi8EeWaEM74jrOcyA" elementId="com.celad.rental.eap.toolbar.0">
+            <children xsi:type="menu:HandledToolItem" xmi:id="_B5vH8Hi9EeWaEM74jrOcyA" elementId="com.celad.rental.eap.handledtoolitem.0" command="_Vp5HcHi3EeWaEM74jrOcyA"/>
+          </toolbar>
+        </children>
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
@@ -14,9 +30,13 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLi8gZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.handleditem.file.open" label="Open" iconURI="platform:/plugin/com.celad.rental.eap/icons/sample.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjMgZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.handleditem.save" label="Save" iconURI="platform:/plugin/com.celad.rental.eap/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjcgZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.handleditem.quit" label="Quit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_tgWJwHi4EeWaEM74jrOcyA" elementId="com.celad.rental.eap.handledmenuitem.0" command="_Vp5HcHi3EeWaEM74jrOcyA"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" label="Help">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLj8gZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.handleditem.about" label="About" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_sC2EcHjNEeWaEM74jrOcyA" elementId="com.celad.rental.eap.menu.window" label="Window">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_j6DYYHjNEeWaEM74jrOcyA" elementId="com.celad.rental.eap.handledmenuitem.5" command="_4PgrEHjMEeWaEM74jrOcyA"/>
       </children>
     </mainMenu>
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.trimbar.top">
@@ -30,6 +50,9 @@
   <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.handler.openCommand" contributionURI="bundleclass://com.celad.rental.eap/com.celad.rental.eap.handlers.OpenHandler" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.handler.saveCommand" contributionURI="bundleclass://com.celad.rental.eap/com.celad.rental.eap.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.handler.aboutCommand" contributionURI="bundleclass://com.celad.rental.eap/com.celad.rental.eap.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_hTckgHi3EeWaEM74jrOcyA" elementId="com.celad.rental.eap.handler.messageDialod" contributionURI="bundleclass://com.celad.rental.ui/com.celad.rental.handler.AfficherMessageHandler" command="_Vp5HcHi3EeWaEM74jrOcyA"/>
+  <handlers xmi:id="_KCgegHjAEeWaEM74jrOcyA" elementId="com.celad.rental.eap.handler.1" contributionURI="bundleclass://com.celad.rental.ui/com.celad.rental.handler.copyHandler" command="_BSBgUHjAEeWaEM74jrOcyA"/>
+  <handlers xmi:id="_APJbIHjNEeWaEM74jrOcyA" elementId="com.celad.rental.eap.handler.2" contributionURI="bundleclass://com.opcoach.e4.preferences/com.opcoach.e4.preferences.handlers.E4PreferencesHandler" command="_4PgrEHjMEeWaEM74jrOcyA"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="com.celad.rental.eap.keybinding.m1o" keySequence="M1+O" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
@@ -40,10 +63,16 @@
     <children xmi:id="_6wlLesgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_6wlLe8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
+  <menuContributions xmi:id="_MN-p0Hi7EeWaEM74jrOcyA" elementId="com.celad.rental.eap.menucontribution.0" positionInParent="after=additions" parentId="org.eclipse.ui.main.toolbar">
+    <children xsi:type="menu:HandledMenuItem" xmi:id="_UTCscHi7EeWaEM74jrOcyA" elementId="com.celad.rental.eap.handledmenuitem.3" command="_Vp5HcHi3EeWaEM74jrOcyA"/>
+  </menuContributions>
   <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
   <commands xmi:id="_6wlLgMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.open" commandName="openCommand"/>
   <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
   <commands xmi:id="_6wlLhsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_Vp5HcHi3EeWaEM74jrOcyA" elementId="com.celad.rental.eap.command.affichermessage" commandName="AfficherMessage" description="Affiche un message"/>
+  <commands xmi:id="_BSBgUHjAEeWaEM74jrOcyA" elementId="org.eclipse.ui.edit.copy" commandName="Copy"/>
+  <commands xmi:id="_4PgrEHjMEeWaEM74jrOcyA" elementId="com.celad.rental.eap.command.preferencescommand" commandName="preferencesCommand"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="com.celad.rental.ui.customerSelected">
+         <instanceof
+               value="com.opcoach.training.rental.Customer">
+         </instanceof>
+      </definition>
+   </extension>
+   <extension
+         point="com.opcoach.e4.preferences.e4PreferencePages">
+      <page
+            class="com.celad.rental.ui.prefs.ColorPrefPage"
+            id="com.celad.rental.ui.page1"
+            name="Couleurs">
+      </page>
+   </extension>
+
+</plugin>

@@ -2,16 +2,28 @@ package com.celad.rental.ui.views;
 
 import java.util.Collection;
 
-import javax.annotation.security.RunAs;
+import javax.inject.Inject;
+import javax.inject.Named;
 
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.resource.ColorRegistry;
+import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.jface.resource.StringConverter;
+import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Image;
 
+import com.celad.rental.ui.RentalUIConstants;
 import com.opcoach.training.rental.Customer;
+import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
+import com.opcoach.training.rental.RentalObject;
 
-public class RentalTreeContentProvider extends LabelProvider implements ITreeContentProvider
+public class RentalTreeContentProvider extends LabelProvider implements ITreeContentProvider, IColorProvider, RentalUIConstants
 {
 	public Object[] getElements(Object inputElement)
 	{
@@ -65,6 +77,8 @@ public class RentalTreeContentProvider extends LabelProvider implements ITreeCon
 			return ((Customer)element).getFirstName() + " " + ((Customer)element).getLastName();
 		else if (element instanceof Node)
 			return ((Node)element).getLabel();
+		else if (element instanceof RentalObject)
+			return ((RentalObject)element).getName();
 		return super.getText(element);
 	}
 	
@@ -99,6 +113,111 @@ public class RentalTreeContentProvider extends LabelProvider implements ITreeCon
 			return null;
 		
 		}
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getOuterType().hashCode();
+			result = prime * result + ((agency == null) ? 0 : agency.hashCode());
+			result = prime * result + ((label == null) ? 0 : label.hashCode());
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Node other = (Node) obj;
+			if (!getOuterType().equals(other.getOuterType()))
+				return false;
+			if (agency == null) {
+				if (other.agency != null)
+					return false;
+			} else if (!agency.equals(other.agency))
+				return false;
+			if (label == null) {
+				if (other.label != null)
+					return false;
+			} else if (!label.equals(other.label))
+				return false;
+			return true;
+		}
+
+		private RentalTreeContentProvider getOuterType() {
+			return RentalTreeContentProvider.this;
+		}
 		
+	}
+
+	@Inject
+	IPreferenceStore prefStore;
+	
+	@Override
+	public Color getForeground(Object element) {
+		if (element instanceof Customer)
+		{
+			String color = prefStore.getString(PREF_CUSTOMER_COLOR);
+			return getPrefColor(color);
+		}
+		else if (element instanceof RentalObject)
+		{
+			String color = prefStore.getString(PREF_RENTAL_OBJECT_COLOR);
+			return getPrefColor(color);
+//			return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
+		}
+		else if (element instanceof Rental)
+		{
+			String color = prefStore.getString(PREF_RENTAL_COLOR);
+			return getPrefColor(color);
+//			return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
+		}
+		return null;
+	}
+
+	@Override
+	public Color getBackground(Object element) {
+		// TODO Auto-generated method stub
+//		if (element instanceof Customer)
+//		{
+//			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
+//		}
+		return null;
+	}
+	
+	private Color getPrefColor(String rgbKey)
+	{
+		ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
+
+		Color result = colorRegistry.get(rgbKey);
+		if (result == null)
+		{
+			// Get value in pref store
+			colorRegistry.put(rgbKey, StringConverter.asRGB(rgbKey));
+			result = colorRegistry.get(rgbKey);
+		}
+
+		return result;
+
+	}
+	
+	@Inject  @Named(RENTAL_UI_IMG_REGISTRY)
+	private ImageRegistry registry;
+	
+	@Override
+	public Image getImage(Object element) {
+		// TODO Auto-generated method stub
+		if (element instanceof Customer)
+			return registry.get(IMG_CUSTOMER);
+		else if (element instanceof RentalObject)
+			return registry.get(IMG_RENTAL_OBJECT);
+		else if (element instanceof RentalAgency)
+			return registry.get(IMG_AGENCY);
+				
+		return super.getImage(element);
 	}
 }
