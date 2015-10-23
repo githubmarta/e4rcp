@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.celad.rental.feature_1.0.0.201510231451.jar" id="com.celad.rental.feature" version="1.0.0.201510231451">
+      <category name="rental"/>
+   </feature>
+   <category-def name="rental" label="Rental">
+      <description>
+         gfgf
+      </description>
+   </category-def>
+</site>

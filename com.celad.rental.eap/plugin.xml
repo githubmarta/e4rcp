@@ -13,8 +13,8 @@
                value="bundleclass://com.celad.rental.eap/com.celad.rental.eap.E4LifeCycle">
          </property>
          <property
-               name="applicationCSS"
-               value="platform:/plugin/com.celad.rental.eap/css/default.css">
+               name="appName"
+               value="com.celad.rental.eap">
          </property>
       </product>
    </extension>

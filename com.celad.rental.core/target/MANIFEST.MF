@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Export-Package: com.celad.rental.core,com.opcoach.training.rental,com.
+ opcoach.training.rental.core.helpers
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;bundle-
+ version="2.11.1";visibility:=reexport
+Bundle-Vendor: CELAD
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: rental.jar,.
+Bundle-Version: 1.0.0.201510231505
+Bundle-Name: Core
+Bundle-Activator: com.celad.rental.core.RentalCoreActivator
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.celad.rental.core
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

@@ -181,7 +181,6 @@ public class RentalTreeContentProvider extends LabelProvider implements ITreeCon
 
 	@Override
 	public Color getBackground(Object element) {
-		// TODO Auto-generated method stub
 //		if (element instanceof Customer)
 //		{
 //			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);

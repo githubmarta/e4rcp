@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
 <plugin>
+
    <extension
          point="org.eclipse.core.expressions.definitions">
       <definition
@@ -13,10 +13,17 @@
    <extension
          point="com.opcoach.e4.preferences.e4PreferencePages">
       <page
+            name="Couleurs"
             class="com.celad.rental.ui.prefs.ColorPrefPage"
-            id="com.celad.rental.ui.page1"
-            name="Couleurs">
+            id="com.celad.rental.ui.page1">
       </page>
+   </extension>
+   <extension
+         id="com.celad.rental.ui.fragment"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="fragment.e4xmi">
+      </fragment>
    </extension>
 
 </plugin>

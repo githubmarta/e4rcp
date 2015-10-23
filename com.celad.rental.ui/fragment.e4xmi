@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_WyQgoHlaEeWaEM74jrOcyA">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_WyQgoXlaEeWaEM74jrOcyA" featurename="addons" parentElementId="com.celad.rental.eap.application">
+    <elements xsi:type="application:Addon" xmi:id="_WyQgonlaEeWaEM74jrOcyA" elementId="com.celad.rental.eap.addon.0" contributionURI="bundleclass://com.celad.rental.ui/com.celad.rental.ui.RentalAddon"/>
+  </fragments>
+</fragment:ModelFragments>
